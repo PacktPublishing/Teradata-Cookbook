@@ -1,0 +1,3 @@
+
+/*MDIFF*/
+SELECT str_id, SAL_MONTH,Target_sale,mdiff(Target_sale,1,str_id)FROM SAL_TBL

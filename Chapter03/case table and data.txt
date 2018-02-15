@@ -1,0 +1,15 @@
+/*Create table and insert for CASE*/
+CREATE Volatile TABLE CUST_Type
+(
+Cust_ID INTEGER,
+Connection_type INTEGER,
+Cust_Add CHAR (20) CHARACTER SET LATIN NOT CASESPECIFIC,
+PRIMARY INDEX ( Cust_ID );
+
+INSERT INTO sales values (10,1,'212 bal');
+INSERT INTO sales values (21,2,'86 court');
+INSERT INTO sales values (31,2,'62 st');
+INSERT INTO sales values (32,1,'21 rd');
+INSERT INTO sales values (102,2,'271 main ');
+INSERT INTO sales values (082,1,'10sroad');
+INSERT INTO sales values (23,?,'jh1-0s');

@@ -1,0 +1,3 @@
+> se ho <host_id> -- Get the hostid from qrysessn
+> di se <ses_no> -- input the stuck session_no
+> di se <ses_no> lon

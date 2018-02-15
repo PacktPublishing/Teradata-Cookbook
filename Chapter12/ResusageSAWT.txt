@@ -1,0 +1,12 @@
+***ResusageSAWT**
+SELECT
+extract(hour from thetime),
+extract(minute from thetime),
+VprID
+,FlowControlled (decimal (8,0))---flowcontrol indicator
+,FlowCtlCnt (decimal (8,0)) --number of time system went into flowcontrol
+in 10 min
+,MailboxDepth (decimal (8,0))
+FROM DBC.ResusageSAWT
+WHERE TheDate = 'YYYY-MM-DD'
+ORDER BY TheTime,VprID;

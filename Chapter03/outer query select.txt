@@ -1,0 +1,29 @@
+/* Table 1 for outer query*/
+CREATE VOLATILE TABLE EMP_TBL1
+(
+EMP_ID INTEGER ,
+
+EMP_NAME VARCHAR(25),
+
+EMP_DEPT INTEGER
+
+)
+primary index(EMP_ID)
+on commit preserve rows;
+
+INSERT INTO EMP_TBL1 VALUES (1,'Rajesh',10);
+
+INSERT INTO EMP_TBL1 VALUES (2,'Rob',11);
+
+INSERT INTO EMP_TBL1 VALUES (3,'Joey',10);
+
+INSERT INTO EMP_TBL1 VALUES (4,'Ross','21');
+
+INSERT INTO EMP_TBL1 VALUES (5,'Rose','22');query*/
+SELECT Column1, Column2
+FROM Table1 Tb1
+WHERE Column1 IN 
+(
+SELECT Column1 FROM Table2 Tb2 WHERE 
+Tb1.Column2=Tb2.Column2
+);

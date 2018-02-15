@@ -1,0 +1,2 @@
+/*Collect index table stats*/
+COLLECT STATISTICS ON JOIN_INDEX_TBL INDEX (date_start, type_no);

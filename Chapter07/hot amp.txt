@@ -1,0 +1,2 @@
+/* HOT AMP Execute this query in 10 mins interval to check which AMP causes high CPU repeaditly*/
+SELECT Vproc, sum(diskio),sum(cputime) from dbc.ampusage group by 1,2

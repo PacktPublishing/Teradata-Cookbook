@@ -1,0 +1,19 @@
+/*Table B without skew*/
+CREATE SET TABLE td_cookbook.B_with_nonskew ,NO FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+     cust_id integer,
+Sal integer
+      )
+      PRIMARY INDEX ( cust_id );
+
+/*Insert Value in table B*/
+insert into td_cookbook.B_with_nonskew values (1,2000);
+insert into td_cookbook.B_with_nonskew values (2,2100);
+insert into td_cookbook.B_with_nonskew values (3,2200);
+insert into td_cookbook.B_with_nonskew values (4,2400);
+insert into td_cookbook.B_with_nonskew values (5,2600);
+insert into td_cookbook.B_with_nonskew values (6,2600);

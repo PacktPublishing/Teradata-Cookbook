@@ -1,0 +1,6 @@
+/* failure update */
+UPDATE ACC
+FROM ACCOUNTS ACC , Hr_payhike SUPD
+SET Sal= TUPD.Sal_hike
+WHERE
+Acc.CUST_ID = SUPD.CUST_ID;

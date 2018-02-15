@@ -1,0 +1,1 @@
+COLLECT STATS  USING MAXVALUELENGTH 500 COLUMN employee_is,Start_date ON cookbook_sandpit.show_me_stats

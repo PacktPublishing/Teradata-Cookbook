@@ -1,0 +1,1 @@
+Sqla -c cookbook -f "c:\workbook\dbc.sql” -e "c:\workbook\resultset\dbc.log"

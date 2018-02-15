@@ -1,0 +1,3 @@
+/*Collect stats on table*/
+Collect stats column EMP_DEPT on EMP_TBL1;
+Collect stats column DEPT_ID on EMP_TBL2;

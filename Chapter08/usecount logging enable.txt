@@ -1,0 +1,2 @@
+	/*usecount logging enable*/
+BEGIN QUERY LOGGING WITH USECOUNT ON “DatabaseNAME”;

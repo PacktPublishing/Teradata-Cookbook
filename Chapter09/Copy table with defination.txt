@@ -1,0 +1,3 @@
+/*Copy table with defination*/
+create table td_cookbook.EMP_TBL_CPY as
+(sel * from  td_cookbook.EMP_TBL) with data;

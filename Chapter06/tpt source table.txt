@@ -1,0 +1,20 @@
+/*TPT source table*/
+CREATE SET TABLE td_cookbook_nyse.tpt_source,NO FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+                  symbol CHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,
+                  id char(2),
+      open_share DECIMAL(18,0)
+                  )
+      PRIMARY INDEX ( id );
+
+/*TPT table insert values*/
+insert into td_cookbook_nyse.mktprice values ('TDC',4,220);
+insert into td_cookbook_nyse.mktprice values ('GOOG',9,250);
+insert into td_cookbook_nyse.mktprice values ('APPL',14,260);
+insert into td_cookbook_nyse.mktprice values ('MSFT',17,210);
+insert into td_cookbook_nyse.mktprice values ('UBR',3,720);
+insert into td_cookbook_nyse.mktprice values ('ITUN',2,320);

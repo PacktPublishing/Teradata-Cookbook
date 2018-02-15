@@ -1,0 +1,8 @@
+locking row for access
+SELECT NodeId
+,VprId
+,SUM(MsgChnLastDone) (TITLE 'LastDone' )
+FROM DBC.ResUsageSVPR
+WHERE VprType LIKE 'AM%' AND TheDate = date
+GROUP BY 1,2
+ORDER BY 3 desc;

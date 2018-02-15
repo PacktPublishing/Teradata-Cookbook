@@ -1,0 +1,5 @@
+CREATE VOLATILE TABLE JSON_TBL
+(
+EMP_id INTEGER, J1 JSON(1000)
+)on commit preserve rows
+;

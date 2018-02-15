@@ -1,0 +1,2 @@
+/*MLOAD execution command*/
+mload < path_name\filename > ml_upsert.log

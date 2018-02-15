@@ -1,0 +1,4 @@
+/*Get queries under query band*/
+sel query band, querytext,sessionid
+from dbc.dbqlogtbl
+where trim(query band) LIKE ‘%ApplicationName%’;

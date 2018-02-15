@@ -1,0 +1,11 @@
+/*/*Sub query*/
+SELECT
+Column1, Column2 FROM 
+Table1 
+WHERE Column1 IN (SELECT Column1 FROM Table1);*/
+SELECT SUM(
+ CASE WHEN department='IT' THEN) AS SAL_IT
+SUM (
+CASE WHEN department='HR' THEN) AS SAL_HR
+ END) 
+FROM EMP_SAL;

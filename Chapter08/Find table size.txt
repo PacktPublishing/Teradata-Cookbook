@@ -1,0 +1,7 @@
+/*Find table size*/
+SELECT  B.databasename , B.TableName , SUM ( currentperm ) ( NAMED CurrentPerm ) ,MAXIMUM ( currentperm ) ( NAMED MaxPerm ) , AVG ( currentperm ) ( NAMED AvgPerm ) ,( ( MAXIMUM ( currentperm ) - AVG ( currentperm )  ) * 100.0  ) / ( MAXIMUM ( currentperm )  ) ( NAMED SkewPercent ) 
+FROM    dbc.tablesize B INNER JOIN DBC.TABLES A 
+    ON  A.DATABASENAME = B.DATABASENAME 
+    AND A.TABLENAME = B.TABLENAME 
+GROUP   BY 1 , 2 
+ORDER   BY 1 , 2 ;

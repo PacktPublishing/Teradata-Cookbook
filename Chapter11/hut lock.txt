@@ -1,0 +1,2 @@
+ Release lock <databasename>.<tablename>; -- Table level
+ Release lock <databasename>; -- Database level

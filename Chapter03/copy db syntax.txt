@@ -1,0 +1,3 @@
+copy data tables (To_database) (from(Source_table))
+, release lock
+, file = CPY;

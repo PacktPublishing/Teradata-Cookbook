@@ -1,0 +1,7 @@
+/*Aggregate CASE*/
+SELECT SUM(
+ CASE WHEN department='IT' THEN) AS SAL_IT
+SUM (
+CASE WHEN department='HR' THEN) AS SAL_HR
+ END) 
+FROM EMP_SAL;

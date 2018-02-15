@@ -1,0 +1,4 @@
+/* Simple LEFT JOIN*/
+SELECT  *
+FROM    EMP F LEFT outer join EMP_SAL FC
+ON      F.id = FC.id;

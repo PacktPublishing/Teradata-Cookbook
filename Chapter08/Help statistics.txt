@@ -1,0 +1,2 @@
+/*Help statistics*/
+HELP STATISTICS ON web_clicks;

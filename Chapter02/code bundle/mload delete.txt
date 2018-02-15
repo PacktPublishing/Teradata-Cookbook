@@ -1,0 +1,6 @@
+LOGTABLE mld_test_delete;.
+LOGON cookbook_td/testuser2,*****;
+.BEGIN DELETE MLOAD TABLES web_clicks;
+DELETE FROM web_clicks WHERE site_id > 1508;
+.END MLOAD;
+.LOGOFF;

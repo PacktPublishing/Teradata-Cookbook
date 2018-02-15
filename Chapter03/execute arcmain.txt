@@ -1,0 +1,2 @@
+/*Execute arcmain*/
+arcmain < ppitbl.bckup_2018.arc.txt

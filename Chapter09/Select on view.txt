@@ -1,0 +1,2 @@
+/*Select on view*/
+SEL * from td_cookbookV.EMP_TBL_View

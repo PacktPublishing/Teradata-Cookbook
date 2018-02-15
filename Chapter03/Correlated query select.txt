@@ -1,0 +1,6 @@
+/*Correlated sub query*/
+SEL TB1.* FROM EMP_TBL1 TB1
+WHERE EXISTS /*Outer Query*/
+(SEL TB2.DEPT_ID FROM  /*Inner Query*/
+DEPT_TBL2 TB2 
+WHERE TB1.EMP_DEPT = TB2.DEPT_ID ) ; 

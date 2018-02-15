@@ -1,0 +1,20 @@
+/*Sub query*/
+SELECT first_name
+,last_name
+,deprt_number
+FROM employee
+WHERE deprt_number IN
+(SELECT department_number
+FROM department
+WHERE department_name LIKE ‘IT’);
+
+/*Subquery to JOIN*/
+SELECT e.first_name
+,e.last_name
+,e.department_number
+FROM employee e INNER JOIN
+department d
+ON e.department_number =
+d.department_number
+WHERE d.department_name LIKE
+‘IT’;

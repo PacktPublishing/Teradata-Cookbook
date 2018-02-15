@@ -1,0 +1,11 @@
+/*phantom spool*/
+SELECT DATABASENAME, VPROC, CURRENTSPOOL
+FROM DBC.DISKSPACE
+WHERE DATABASENAME NOT IN (SEL USERNAME FROM DBC.SESSIONINFO)
+AND CURRENTSPOOL > 0
+ORDER BY 1,2
+WITH SUM(currentspool);
+
+/*release lock command*/
+Release lock <databasename>.<tablename>; -- Table levelRelease
+lock <databasename>;

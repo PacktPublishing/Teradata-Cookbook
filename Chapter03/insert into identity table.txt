@@ -1,0 +1,3 @@
+/*Insert data into identity table*/
+insert into td_cookbook.Idn_EMP_TBL values (1,'Rob',2500);
+insert into td_cookbook.Idn_EMP_TBL values (2,'Moss',2322);

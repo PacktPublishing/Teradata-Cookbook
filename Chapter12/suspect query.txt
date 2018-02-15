@@ -1,0 +1,35 @@
+SEL Logdate , Hr (TITLE 'Hour'), Wrkld as WorkloadName, SUM(CPU) as
+TotalCPU
+FROM
+(
+SEL logdate , EXTRACT(HOUR FROM LogonDateTime) AS Hr , b.RuleName AS Wrkld
+,
+CASE WHEN TotalIOCount = 0 THEN 0
+ELSE ((AMPCPUTime+Parsercputime) * 1000)/TotalIOCount
+END AS "PJI",
+CASE WHEN (AMPCPUTime + Parsercputime) =0 THEN 0
+ ELSE (TotalIOCount) / ((AMPCPUTime + Parsercputime) * 1000)
+END AS "UII",
+CASE WHEN ((AMPCPUTime+Parsercputime) / (HASHAMP()+1)) =0 THEN 0
+ELSE ( 1 - (AmpCPUTime / (HASHAMP()+1))/NULLIFZERO(MaxAmpCPUTime))
+END AS "CPU_skew" ,
+CASE WHEN (TotalIOCount / (HASHAMP()+1)) =0 THEN 0
+ELSE (1-(TotalIOCount / (HASHAMP()+1))/NULLIFZERO(MaxAmpIO))
+END AS "IO_skew", MaxAMPCPUTime * (HASHAMP()+1) /*no. of Amps*/ AS
+ImpactCPU,
+SUM(AMPCPUTime + Parsercputime) AS CPU
+FROM pdcrinfo.dbqlogtbl_hst a INNER JOIN (
+sel RuleId, RuleName
+from tdwm.RuleDefs
+group by 1, 2) b ON b.RuleId = a.wdid
+WHERE AMPCPUTime > 1
+ AND logdate BETWEEN date-30
+ AND date-1
+ GROUP BY 1,2,3,4,5,6,7,8
+ HAVING (PJI > 3
+ OR UII> 3
+ OR CPU_skew >0.5
+ OR IO_skew >0.5
+) )a
+GROUP BY 1,2,3
+order by 1,2,3;

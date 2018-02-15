@@ -1,0 +1,255 @@
+/*NON PPI TABLE DDL*/
+CREATE volatile TABLE EMP_SAL_NONPPI
+(
+id INT,
+Sal INT,
+dob DATE,
+o_total INT
+) primary index( id);
+
+INSERT into EMP_SAL_NONPPI VALUES (1001,2500,'2017-09-01',890);
+INSERT into EMP_SAL_NONPPI VALUES (1002,5500,'2017-09-10',890);
+INSERT into EMP_SAL_NONPPI VALUES (1003,500,'2017-09-02',890);
+INSERT into EMP_SAL_NONPPI VALUES (1004,54500,'2017-09-05',890);
+INSERT into EMP_SAL_NONPPI VALUES (1005,900,'2017-09-23',890);
+INSERT into EMP_SAL_NONPPI VALUES (1006,8900,'2017-08-03',890);
+INSERT into EMP_SAL_NONPPI VALUES (1007,8200,'2017-08-21',890);
+INSERT into EMP_SAL_NONPPI VALUES (1008,6200,'2017-08-06',890);
+INSERT into EMP_SAL_NONPPI VALUES (1009,2300,'2017-08-12',890);
+INSERT into EMP_SAL_NONPPI VALUES (1010,9200,'2017-08-15',890);
+
+
+/*Select on NONPPI table*/
+SELECT * from EMP_SAL_NONPPI
+where dob <= 2017-08-01;
+
+/*Explain for NONPPI table*/
+
+Explain SELECT * from EMP_SAL_NONPPI
+where dob <= 2017-08-01;
+
+
+/*Partition table*/
+CREATE volatile TABLE EMP_SAL_PPI
+(
+id INT,
+Sal int,
+dob date,
+o_total int
+) primary index( id)
+PARTITION BY RANGE_N (dob BETWEEN DATE '2017-01-01'
+AND DATE '2017-12-01' EACH INTERVAL '1' DAY)
+on commit preserve rows;
+
+
+
+INSERT into EMP_SAL_PPI VALUES (1001,2500,'2017-09-01',890);
+INSERT into EMP_SAL_PPI VALUES (1002,5500,'2017-09-10',890);
+INSERT into EMP_SAL_PPI VALUES (1003,500,'2017-09-02',890);
+INSERT into EMP_SAL_PPI VALUES (1004,54500,'2017-09-05',890);
+INSERT into EMP_SAL_PPI VALUES (1005,900,'2017-09-23',890);
+INSERT into EMP_SAL_PPI VALUES (1006,8900,'2017-08-03',890);
+INSERT into EMP_SAL_PPI VALUES (1007,8200,'2017-08-21',890);
+INSERT into EMP_SAL_PPI VALUES (1008,6200,'2017-08-06',890);
+INSERT into EMP_SAL_PPI VALUES (1009,2300,'2017-08-12',890);
+INSERT into EMP_SAL_PPI VALUES (1010,9200,'2017-08-15',890);
+
+
+/*CASE partition*/
+CREATE TABLE SALES_CASEPPI
+(
+ORDER_ID INTEGER,
+CUST_ID INTERGER,
+ORDER_DT DATE,
+)
+PRIMARY INDEX(ORDER_ID)
+PARTITION BY CASE_N(ORDER_ID < 101,
+ORDER_ ID < 201,
+ORDER_ID < 501,
+NO CASE,UNKNOWN);
+
+
+/*Range Partition table*/
+CREATE volatile TABLE EMP_SAL_PPI
+(
+id INT,
+Sal int,
+dob date,
+o_total int
+) primary index( id)
+PARTITION BY RANGE_N (dob BETWEEN DATE '2017-01-01'
+AND DATE '2017-12-01' EACH INTERVAL '1' DAY)
+on commit preserve rows;
+
+CREATE TABLE SALES_MLPPI_TABLE
+(
+ORDER_ID INTEGER NOT NULL,
+CUST_ID INTERGER,
+ORDER_DT DATE,
+)
+PRIMARY INDEX(ORDER_ID)
+PARTITION BY (RANGE_N(ORDER_DT BETWEEN DATE '2017-08-01' AND DATE
+'2017-12-31'
+EACH INTERVAL '1' DAY)
+CASE_N (ORDER_ID < 1001,
+ORDER_ID < 2001,
+ORDER_ID < 3001,
+NO CASE, UNKNOWN));
+
+
+CREATE TABLE SALES_MLPPI_TABLE
+(
+ORDER_ID INTEGER NOT NULL,
+CUST_ID INTERGER,
+ORDER_DT DATE,
+)
+PRIMARY INDEX(ORDER_ID)
+PARTITION BY (RANGE_N(ORDER_DT BETWEEN DATE '2017-08-01' AND DATE
+'2017-12-31'
+EACH INTERVAL '1' DAY)
+CASE_N (ORDER_ID < 1001,
+ORDER_ID < 2001,
+ORDER_ID < 3001,
+NO CASE, UNKNOWN));
+
+CREATE TABLE td_cookbook.PPI_part1
+(
+COLA INTEGER NOT NULL,
+DOB Date
+) PRIMARY INDEX (COLA)
+PARTITION BY (RANGE_N
+(DOB BETWEEN DATE '1900-01-01' AND DATE'2017-12-31' EACH INTERVAL '1' DAY,
+NO RANGE));
+
+
+ALTER TABLE td_cookbook.PPI_part1
+MODIFY PRIMARY INDEX ADD RANGE BETWEEN DATE ‘2016-01-01’ AND DATE ‘2016-06-30’
+EACH INTERVAL ‘1’ DAY;
+
+
+/*MULTI TABLE JOIN INDEX*/
+CREATE JOIN INDEX IDX_NAME
+AS
+SELECT COLUMN_NAME
+FROM TABLE_NAME A
+INNER JOIN TABLE_NAME B
+ON A.JOIN_COLUMN = B.JOIN_COLUMN
+UNIQUE PRIMARY INDEX (COLUMN);
+
+
+CREATE TABLE td_cookbook.EMP_SAL
+(
+id INT,
+DEPT varchar(25),
+emp_Fname varchar(25),
+emp_Lname varchar(25),
+emp_Mname varchar(25),
+status INT
+)primary index(id)
+INSERT into td_cookbook.EMP_SAL VALUES (1,'HR','Anikta','lal','kumar',1);
+INSERT into td_cookbook.EMP_SAL VALUES (2,'HR','Anik','kumar','kumar',2);
+INSERT into td_cookbook.EMP_SAL VALUES (3,'IT','Arjun','sharma','lal',1);
+INSERT into td_cookbook.EMP_SAL VALUES (4,'SALES','Billa','Suti','raj',2);
+INSERT into td_cookbook.EMP_SAL VALUES (4,'IT','Koyd','Loud','harlod',1);
+INSERT into td_cookbook.EMP_SAL VALUES (2,'HR','Harlod','lal','kumar',1);
+
+
+/*Join Index*/
+CREATE JOIN INDEX td_cookbook.EMP_JI
+AS
+SELECT id,emp_Fname,emp_Lname,status,emp_Mname,dept
+FROM td_cookbook.EMP_SAL
+PRIMARY INDEX(emp_Fname);
+
+
+/*Collect stats on JI*/
+collect stats td_cookbook.EMP_JI column emp_Fname
+
+Explain sel id,dept,emp_Fname,emp_Lname,status from
+td_cookbook.EMP_SAL
+where emp_Fname='ankita';
+
+/*AG JOIN INDEX*/
+CREATE JOIN INDEX Agg_Join_Index AS
+SELECT Cust_ID,
+Order_ID,
+SUM(Sales_north) -- Aggregate column
+FROM
+sales_table
+GROUP BY 1,2
+Primary Index(Cust_ID);
+
+/*SP JOIN INDEX*/
+CREATE JOIN INDEX Sparse_Join_Index AS
+SELECT Cust_ID,
+Order_ID,
+SUM(Sales_north) -- Aggregate column
+FROM
+sales_table
+where Order_id = 1 -- WHERE CLAUSE
+GROUP BY 1,2
+Primary Index(Cust_ID);
+
+CREATE TABLE td_cookbook.EMP_SAL
+(
+id INT,
+DEPT varchar(25),
+emp_Fname varchar(25),
+emp_Lname varchar(25),
+emp_Mname varchar(25),
+status INT
+)primary index(id);
+INSERT into td_cookbook.EMP_SAL VALUES (1,'HR','Anikta','lal','kumar',1);
+INSERT into td_cookbook.EMP_SAL VALUES (2,'HR','Anik','kumar','kumar',2);
+INSERT into td_cookbook.EMP_SAL VALUES (3,'IT','Arjun','sharma','lal',1);
+INSERT into td_cookbook.EMP_SAL VALUES (4,'SALES','Billa','Suti','raj',2);
+INSERT into td_cookbook.EMP_SAL VALUES (4,'IT','Koyd','Loud','harlod',1);
+INSERT into td_cookbook.EMP_SAL VALUES (2,'HR','Harlod','lal','kumar',1);
+
+
+/*Explain of Select*/
+EXPLAIN SELECT id,dept,emp_Fname,emp_Lname,status from
+td_cookbook.EMP_SAL
+where dept='IT';
+
+
+/*SI on table*/
+CREATE INDEX(emp_Fname) on td_cookbook.EMP_SAL;
+
+
+/*Drop SI*/
+DROP INDEX index_name ON tablename;
+
+/*Create table with data*/
+CREATE TABLE td_cookbook.EMP_SAL
+(
+id INT,
+DEPT varchar(25),
+emp_Fname varchar(25),
+emp_Lname varchar(25),
+emp_Mname varchar(25),
+status INT
+)primary index(id);
+INSERT into td_cookbook.EMP_SAL VALUES (1,'HR','Anikta','lal','kumar',1);
+INSERT into td_cookbook.EMP_SAL VALUES (2,'HR','Anik','kumar','kumar',2);
+INSERT into td_cookbook.EMP_SAL VALUES (3,'IT','Arjun','sharma','lal',1);
+INSERT into td_cookbook.EMP_SAL VALUES (4,'SALES','Billa','Suti','raj',2);
+INSERT into td_cookbook.EMP_SAL VALUES (4,'IT','Koyd','Loud','harlod',1);
+INSERT into td_cookbook.EMP_SAL VALUES (2,'HR','Harlod','lal','kumar',1);
+
+
+/*Command to show/drop hash index*/
+SHOW HASH INDEX;
+DROP HASH INDEX;
+
+SELECT databasename, tablename, columnname, indextype, indexnumber,
+indexname FROM
+dbc.indices
+ORDER BY
+indextype;
+
+/*ORDER BY HASH IDX*/
+CREATE HASH INDEX EMP_hash
+(employee_id, dpt_id) ON EMP_hash
+BY (employee_id)
+ORDER BY VALUES(employee_id);

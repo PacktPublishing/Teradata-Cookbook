@@ -1,0 +1,23 @@
+** TARGET TABLE**
+create volatile table accounts
+(
+CUST_ID,
+CUST_NAME,
+Sal
+)with data
+primary index(cust_id)
+insert values (1,'will',2000);
+insert values (2,'bekky',2800);
+insert values (3,'himesh',4000);
+
+** SOURCE TABLE**
+create volatile table Hr_payhike
+(
+CUST_ID,
+CUST_NAME,
+Sal_hike
+) with data
+primary index(cust_id)
+insert values (1,'will',2030);
+insert values (1,'bekky',3800);
+insert values (3,'himesh',7000);

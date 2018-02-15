@@ -1,0 +1,5 @@
+/*show stats value*/
+show  stats values 
+column (employee_is,Start_date) 
+on  
+cookbook_sandpit.show_me_stats

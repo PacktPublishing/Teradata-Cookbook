@@ -1,0 +1,2 @@
+/* MLOAD release lock in application phase*/
+RELEASE MLOAD <databasename.tablename> in apply; 

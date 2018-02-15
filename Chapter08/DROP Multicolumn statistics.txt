@@ -1,0 +1,2 @@
+/*DROP Multicolumn statistics*/
+DROP STATISTICS ON databasename.tablename COLUMN(column1, column2);

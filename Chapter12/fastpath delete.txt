@@ -1,0 +1,2 @@
+**Fastpath Delete**
+Delete from dbc.dbqlogtbl ALL;

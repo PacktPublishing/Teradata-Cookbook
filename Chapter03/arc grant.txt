@@ -1,0 +1,3 @@
+/*ARC grant to archive user*/
+GRANT DUMP, SELECT ON DBC TO ARC_USR_ROLE;
+GRANT ARC_USR_ROLE to ARCH01;

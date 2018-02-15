@@ -1,0 +1,3 @@
+
+/*Additional row insert*/
+INSERT INTO DEPT_TBL2 VALUES (10,'IT','UK');

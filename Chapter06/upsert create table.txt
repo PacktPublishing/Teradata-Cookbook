@@ -1,0 +1,12 @@
+/* UPSERT create table */
+CREATE SET TABLE td_cookbook_nyse.mktprice ,NO FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+     symbol CHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,
+      id varchar(10),
+      open_share DECIMAL(18,0)
+      )
+      PRIMARY INDEX ( id );

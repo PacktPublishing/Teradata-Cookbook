@@ -1,0 +1,8 @@
+/*MLOAD delete*/
+.LOGTABLE   Logtable_del;
+.SET ERROROUT STDOUT /* Output to file */
+.LOGON 127.0.0.1/sysdba,password;
+.BEGIN DELETE MLOAD TABLES Accounts_ml_del;
+DELETE FROM Employee WHERE Sal = 0; 
+.END MLOAD;
+.LOGOFF;

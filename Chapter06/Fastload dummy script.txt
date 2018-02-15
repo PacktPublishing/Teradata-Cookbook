@@ -1,0 +1,8 @@
+/*Fastload dummy script*/
+
+.LOGON 127.0.0.1/dbc, dbc; /* Vaild system name and credentials to your system */
+.DATABASE Database_Name; /* database under which locked table is */
+erorfiles errortable_name, uv_tablename /* same error table name as in script */
+begin loading locked_table; /* table which is getting 2652 error */
+.END LOADING; /* to end pahse 2 and release the lock */
+.LOGOFF;

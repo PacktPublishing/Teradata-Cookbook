@@ -1,0 +1,8 @@
+**Active sessions**
+SEL HostId (TITLE 'Host',FORMAT 'ZZZ9'),
+ UserName (TITLE 'Active Users'),
+ SessionNo (TITLE 'Session'),
+ LogonPENo (TITLE 'IFP')
+FROM TABLE (SYSLIB.MonitorSession(-1,'*',0)) AS t1
+WHERE AmpState='ACTIVE'
+ORDER BY 1,2;

@@ -1,0 +1,2 @@
+/*query band with volatile option*/
+SET QUERY_BAND = 'cat=siamese;dog=akita;'FOR SESSION VOLATILE;

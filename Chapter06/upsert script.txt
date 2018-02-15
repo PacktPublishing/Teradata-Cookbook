@@ -1,0 +1,21 @@
+/*UPSERT script*/
+.LOGTABLE Restart_log_ml;
+.LOGON 192.168.0.12/sysdba,password;
+.BEGIN IMPORT MLOAD TABLES td_cookbook_nyse.mktprice;
+.LAYOUT Inputfile_layout; /* Definition of input layout */
+.FIELD in_symbol * VARCHAR(25);
+.FIELD in_id * varchar(10);
+.FIELD in_open_share * VARCHAR(30);
+.DML LABEL Fix_Price DO INSERT FOR MISSING UPDATE ROWS;/*Definitionofan UPSERT*/
+ 
+ UPDATE td_cookbook_nyse.mktprice SET open_share = :in_open_share
+ WHERE symbol = :in_symbol 
+and id=:in_id
+;
+
+ INSERT INTO td_cookbook_nyse.mktprice VALUES (:in_symbol,in_id,:in_open_share);
+.IMPORT INFILE C:\Users\AK\Desktop\CookBook\Price_match.txt /*File name to import from*/
+FORMAT VARTEXT ','
+LAYOUT Inputfile_layout APPLY Fix_Price;
+.END MLOAD;
+.LOGOFF;

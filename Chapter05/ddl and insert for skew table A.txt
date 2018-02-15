@@ -1,0 +1,26 @@
+/**Table A with Skewness**/
+CREATE SET TABLE td_cookbook.A_with_skew ,NO FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+     cust_id integer,
+Cust_name varchar(32),
+City varchar(18)
+      )
+      PRIMARY INDEX ( cust_id );
+
+/*Insert Values in Table A*/
+insert into td_cookbook.A_with_skew values (,'Rakesh Jha','AJM');    
+insert into td_cookbook.A_with_skew values (,'Tom A','CA');    
+insert into td_cookbook.A_with_skew values (,'Namcie R','IN');    
+insert into td_cookbook.A_with_skew values (,'Ab Kh','VIC');    
+insert into td_cookbook.A_with_skew values (,'Man Jav','PUN');    
+insert into td_cookbook.A_with_skew values (,'Rajesj Jav','MUM');    
+insert into td_cookbook.A_with_skew values (,'Donald T','NY');    
+insert into td_cookbook.A_with_skew values (,'Erica Sven','MS');    
+insert into td_cookbook.A_with_skew values (,'Holly W','TS');    
+insert into td_cookbook.A_with_skew values (2,'Mnai W','BHK');    
+insert into td_cookbook.A_with_skew values (3,'Raji W','HAD');
+insert into td_cookbook.A_with_skew values (4,'Raji W','HAD'); 

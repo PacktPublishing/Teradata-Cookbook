@@ -1,0 +1,8 @@
+/*Correlated query*/
+SELECT Column1, Column2
+FROM Table1 Tb1
+WHERE Column1 IN 
+(
+SELECT Column1 FROM Table2 Tb2 WHERE 
+Tb1.Column2=Tb2.Column2
+);

@@ -1,0 +1,26 @@
+CREATE TABLE test01.webclicks
+
+( id INTEGER NOT NULL
+
+, amt decimal(30) NOT NULL
+
+, colm VARCHAR(128) NOT NULL
+
+, pending_flag CHAR(1) NOT NULL
+
+) PRIMARY INDEX(id);
+
+CREATE TABLE au.az_clicks
+
+( id INTEGER NOT NULL
+
+, amt decimal(30) NOT NULL
+
+, address VARCHAR(128) NOT NULL
+
+, flag CHAR(2) NOT NULL
+
+) PRIMARY INDEX(id);
+
+
+

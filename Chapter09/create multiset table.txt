@@ -1,0 +1,5 @@
+/*MultiSet table*/
+CREATE MULTISET TABLE td_cookbook.EMP_TBL_MULTI
+(EMP_ID INTEGER ,
+EMP_Name VARCHAR(20),
+Sal INTEGER)primary index (EMP_ID)

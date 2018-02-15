@@ -1,0 +1,102 @@
+/*TPT script*/
+
+/* 1 */ 
+/* 2 */ 
+/* 3 */  DEFINE JOB tpt_source
+/* 4 */  DESCRIPTION 'tpt_source'
+/* 5 */  (
+/* 6 */  DEFINE OPERATOR W_1_o_tpt_source
+/* 7 */  TYPE LOAD
+/* 8 */  SCHEMA *
+/* 9 */  ATTRIBUTES
+/* 10 */                (
+/* 11 */                                VARCHAR UserName,
+/* 12 */                                VARCHAR UserPassword,
+/* 13 */                                VARCHAR LogonMech,
+/* 14 */                                VARCHAR LogonMechData,
+/* 15 */                                VARCHAR LogTable,
+/* 16 */                                VARCHAR TargetTable,
+/* 17 */                                INTEGER BufferSize,
+/* 18 */                                INTEGER ErrorLimit,
+/* 19 */                                INTEGER MaxSessions,
+/* 20 */                                INTEGER MinSessions,
+/* 21 */                                INTEGER TenacityHours,
+/* 22 */                                INTEGER TenacitySleep,
+/* 23 */                                VARCHAR AccountID,
+/* 24 */                                VARCHAR DateForm,
+/* 25 */                                VARCHAR ErrorTable1,
+/* 26 */                                VARCHAR ErrorTable2,
+/* 27 */                                VARCHAR NotifyExit,
+/* 28 */                                VARCHAR NotifyExitIsDLL,
+/* 29 */                                VARCHAR NotifyLevel,
+/* 30 */                                VARCHAR NotifyMethod,
+/* 31 */                                VARCHAR NotifyString,
+/* 32 */                                VARCHAR PauseAcq,
+/* 33 */                                VARCHAR PrivateLogName,
+/* 34 */                                VARCHAR TdpId,
+/* 35 */                                VARCHAR TraceLevel,
+/* 36 */                                VARCHAR WorkingDatabase
+/* 37 */                );
+/* 38 */ 
+/* 39 */                DEFINE SCHEMA W_0_s_tpt_source
+/* 40 */                (
+/* 41 */                                symbol CHARACTER(10),
+/* 42 */                                id_1 CHARACTER(2),
+/* 43 */                                open_share DECIMAL(18)
+/* 44 */                );
+/* 45 */ 
+/* 46 */                DEFINE OPERATOR W_0_o_tpt_source
+/* 47 */                TYPE EXPORT
+/* 48 */                SCHEMA W_0_s_tpt_source
+/* 49 */                ATTRIBUTES
+/* 50 */                (
+/* 51 */                                VARCHAR UserName,
+/* 52 */                                VARCHAR UserPassword,
+/* 53 */                                VARCHAR LogonMech,
+/* 54 */                                VARCHAR LogonMechData,
+/* 55 */                                VARCHAR SelectStmt,
+/* 56 */                                INTEGER BlockSize,
+/* 57 */                                INTEGER MaxSessions,
+/* 58 */                                INTEGER MinSessions,
+/* 59 */                                INTEGER TenacityHours,
+/* 60 */                                INTEGER TenacitySleep,
+/* 61 */                                INTEGER MaxDecimalDigits,
+/* 62 */                                VARCHAR AccountID,
+/* 63 */                                VARCHAR DateForm,
+/* 64 */                                VARCHAR NotifyExit,
+/* 65 */                                VARCHAR NotifyExitIsDLL,
+/* 66 */                                VARCHAR NotifyLevel,
+/* 67 */                                VARCHAR NotifyMethod,
+/* 68 */                                VARCHAR NotifyString,
+/* 69 */                                VARCHAR PrivateLogName,
+/* 70 */                                VARCHAR TdpId,
+/* 71 */                                VARCHAR TraceLevel,
+/* 72 */                                VARCHAR WorkingDatabase
+/* 73 */                );
+/* 74 */ 
+/* 75 */                APPLY
+/* 76 */                                (
+/* 77 */                                                'INSERT INTO COOKBOOK_TPT_TARGET.tpt_source (symbol,id,open_share) VALUES (:symbol,:id_1,:open_share);'
+/* 78 */                                
+/* 79 */                TO OPERATOR
+/* 80 */                (/* 81 */                                W_1_o_tpt_source[1]/* 82 */ /* 83 */                                ATTRIBUTES
+/* 84 */                                (
+/* 85 */                                                UserName = @TeradataDestinationUser,/* 86 */                                                UserPassword = @TeradataDestinationPassword,
+/* 87 */                                                LogonMech = '',
+/* 88 */                                                LogTable = 'COOKBOOK_WORK_IN.tpt_source_log',
+/* 89 */                                                TargetTable = 'COOKBOOK_tpt.tpt_source',
+/* 90 */                                                TdpId = '127.0.0.2'
+/* 91 */                                )
+/* 92 */                )/* 93 */                SELECT * FROM OPERATOR
+/* 94 */                (
+/* 95 */                                W_0_o_tpt_source[1]
+/* 96 */ 
+/* 97 */                                ATTRIBUTES
+/* 98 */                                (
+/* 99 */                                                UserName = @TeradataSourceUser,
+/* 100 */                                             UserPassword = @TeradataSourcePassword,
+/* 101 */                                             SelectStmt = 'SELECT symbol,id,open_share FROM COOKBOOK_TPT.tpt_source;',
+/* 102 */                                             TdpId = '127.0.0.4'
+/* 103 */                             )
+/* 104 */             );
+/* 105 */  );

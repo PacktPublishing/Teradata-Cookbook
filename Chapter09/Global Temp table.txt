@@ -1,0 +1,7 @@
+/*Global Temp table*/
+CREATE GLOBAL TEMPORARY  TABLE EMP_TBL_GLOBAL
+(EMP_ID INTEGER ,
+EMP_Name VARCHAR(20),
+Sal INTEGER) 
+primary index (EMP_ID)
+on commit preserve rows;

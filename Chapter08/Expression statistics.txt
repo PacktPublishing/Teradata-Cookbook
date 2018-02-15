@@ -1,0 +1,5 @@
+/*Expression statistics*/
+
+COLLECT STATS COLUMN ( CASE WHEN  SUBSTRING(  col2 FROM 1 FOR 4)   ='this'  THEN  'Y'   ELSE 'N'  END)  AS der1_stats  ON   cookbook_t.EXPstats1;
+
+COLLECT STATS COLUMN ( CASE WHEN  SUBSTRING(  col2 FROM 1 FOR 4)   ='test'  THEN  'Y'   ELSE 'N'  END)  AS der1_stats ON   cookbook_t.EXPstats2;

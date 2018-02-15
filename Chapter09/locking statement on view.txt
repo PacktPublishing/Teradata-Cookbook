@@ -1,0 +1,4 @@
+/*locking statement*/
+LOCKING ROW FOR ACCESS
+CREATE/REPLACE view
+<Select statement>

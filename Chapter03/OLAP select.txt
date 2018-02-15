@@ -1,0 +1,9 @@
+/*OLAP select*/
+SELECT EMP_ID,
+SAL_Months,
+sale_done,
+sale_target,
+min(sale_done)
+OVER (
+PARTITION BY EMP_ID ORDER BY 
+SAL_Months ROWS 2 PRECEDING) FROM EMP_SAL;

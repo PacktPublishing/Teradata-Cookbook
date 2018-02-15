@@ -1,0 +1,2 @@
+/*To identify the AMP*/
+SELECT      HASHAMP(HASHBUCKET(HASHROW(NULL))) AS TheNullAmp;

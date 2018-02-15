@@ -1,0 +1,5 @@
+/*Raw data from insert*/
+tdc,1,210
+Goog,2,560
+Appl,,5,700 /* Missing id column value */
+MSFT,6,890

@@ -1,0 +1,2 @@
+/*STEP table*/
+SELECT stepname,StepLev1Num,StepLev2Num,CPUTime,SpoolUsage from dbc.dbqlsteptbl where queryid=163435711352446508

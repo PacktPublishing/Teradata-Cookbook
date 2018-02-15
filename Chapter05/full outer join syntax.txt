@@ -1,0 +1,12 @@
+/*Full OUTER join query*/
+SELECT  item.END_DT 
+,CASE WHEN  item.ITEM_ID IS NOT NULL  AND other.ITEM_ID  IS NOT NULL  THEN 'Exists in Both'
+WHEN  item.ITEM_ID IS NOT NULL  AND other.ITEM_ID   IS NULL  THEN 'Cold Missing'   WHEN  item.ITEM_ID IS NULL  AND other.ITEM_ID   IS NOT NULL  THEN 'Item Missing'  END  AS DataIntegrityCheck /* CASE statement to check if row present in table */
+, COUNT(*) AS Cnt
+FROM  ITEM item
+FULL OUTER JOIN Other_ITEM Other
+ON  ( other.ITEM_ID = item.ITEM_ID
+      AND other.END_DT = item.END_DT)
+WHERE  item.END_DT = '2017-10-05'
+      AND  item.END_DT = '2017-10-05'
+GROUP  BY 1,2;

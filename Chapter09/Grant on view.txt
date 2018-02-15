@@ -1,0 +1,2 @@
+/* Grant on view*/
+grant select,insert on <tablesdb> to <viewsdb> with grant option;

@@ -1,0 +1,19 @@
+MERGE INTO
+Table1 AS t1
+USING
+Table1_this AS t2
+ON
+t1.PK_Col=t2.PK_Col
+WHEN MATCHED THEN UPDATE
+SET
+Col1=t1.Col1,
+Col2=t1.Col2
+WHEN NOT MATCHED THEN
+INSERT
+(
+t1.PK_Col,
+t1.Col1,
+t1.Col2
+)
+;
+You ca

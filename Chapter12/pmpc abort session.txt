@@ -1,0 +1,1 @@
+SELECT AbortSessions (1, 'sysdba', <sessionid>, 'Y', 'Y');

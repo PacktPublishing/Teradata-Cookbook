@@ -1,0 +1,2 @@
+/*MLOAD execution*/
+mload < delete_ml.txt > ml_del.log

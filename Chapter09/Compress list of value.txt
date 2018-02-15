@@ -1,0 +1,3 @@
+/*Compress list of value*/
+       ALTER TABLE td_cookbook.EMP_SAL
+       ADD o_total INT COMPRESS (890,90);

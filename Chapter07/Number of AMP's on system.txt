@@ -1,0 +1,2 @@
+/*Number of AMP's on system*/
+Select count(distinct Vproc) from dbc.ampusage

@@ -1,0 +1,3 @@
+
+/*Collect stats on JSON column*/
+COLLECT STATISTICS COLUMN J1.name AS json_name_stats ON JSON_TBL

@@ -1,0 +1,4 @@
+/*Check for duplicate values in source table*/
+SELECT cust_id,count(*) 
+from Hr_payhike
+group by 1 order by 2 desc

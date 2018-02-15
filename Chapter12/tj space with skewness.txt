@@ -1,0 +1,9 @@
+**To check space and skewness in TJ table**
+SELECT DatabaseName,Tablename,MAX(CurrentPerm) AS MaxPerm, MIN(CurrentPerm)
+AS MinPerm ,
+(100 - (AVG(CurrentPerm)/NULLIFZERO(MAX(CurrentPerm))*100)) (FORMAT
+'Z9.99') AS SkewFactor
+FROM dbc.TableSize
+WHERE databasename IN ('dbc')
+AND tablename IN ('TransientJournal' )
+GROUP BY 1,2

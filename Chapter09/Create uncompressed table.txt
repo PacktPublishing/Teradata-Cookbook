@@ -1,0 +1,20 @@
+/*Create uncompressed table*/
+        CREATE TABLE td_cookbook.EMP_SAL
+        (
+        id INT,
+        Sal int,
+        dob date,
+        o_total int
+        ) primary index( id)
+        on commit preserve rows
+
+        INSERT into td_cookbook.EMP_SAL VALUES (1001,2500,'2017-09-01',890);
+        INSERT into td_cookbook.EMP_SAL VALUES (1002,5500,'2017-09-01',890);
+        INSERT into td_cookbook.EMP_SAL VALUES (1003,500,'2017-09-01',890);
+        INSERT into td_cookbook.EMP_SAL VALUES (1004,54500,'2017-09-05',890);
+        INSERT into td_cookbook.EMP_SAL VALUES (1005,900,'2017-09-05',90);
+        INSERT into td_cookbook.EMP_SAL VALUES (1006,8900,'2017-09-05',800);
+        INSERT into td_cookbook.EMP_SAL VALUES (1007,8200,'2017-08-21',120);
+        INSERT into td_cookbook.EMP_SAL VALUES (1008,6200,'2017-08-06',1230);
+        INSERT into td_cookbook.EMP_SAL VALUES (1009,2300,'2017-08-12',530);
+        INSERT into td_cookbook.EMP_SAL VALUES (1010,9200,'2017-08-15',810);

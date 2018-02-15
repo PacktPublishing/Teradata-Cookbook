@@ -1,0 +1,8 @@
+**BUSY CPU QUERY PER NODE**
+SELECT
+NodeId as NodeID
+,AVG(((CPUUserv + CPUUExec)/Nullifzero(NCPUs))/secs)as NodeCPUBsy
+FROM
+DBC.RESUSAGESPMA
+where thedate=date
+group by 1

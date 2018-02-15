@@ -1,0 +1,2 @@
+/*Drop view*/
+DROP VIEW td_cookbookV.EMP_TBL_View

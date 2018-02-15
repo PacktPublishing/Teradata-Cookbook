@@ -1,0 +1,4 @@
+/** SQL for Creating and adding ADMIN to secure zone**/
+CREATE ZONE zone_name ROOT root_name ;
+CREATE USER DBA_user_name FROM database_name ... ;
+GRANT ZONE zone_name_list TO user_name_list ;

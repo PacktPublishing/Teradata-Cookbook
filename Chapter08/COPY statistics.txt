@@ -1,0 +1,3 @@
+
+/*COPY statistics*/
+collect stats on cookbook_sandpit.copy_stats_new from cookbook_sandpit.copy_stats

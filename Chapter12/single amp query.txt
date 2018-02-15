@@ -1,0 +1,2 @@
+**Single AMP Query**
+select time;

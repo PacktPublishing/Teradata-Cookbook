@@ -1,0 +1,5 @@
+/* To check SKEW value*/
+LOCKING ROW FOR ACCESS
+SELECT cust_id,count(*)
+FROM td_cookbook.A_with_skew
+group by 1 order by 2 desc

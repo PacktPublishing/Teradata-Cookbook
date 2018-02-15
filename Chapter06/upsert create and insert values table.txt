@@ -1,0 +1,18 @@
+/* UPSERT create table */
+CREATE SET TABLE td_cookbook_nyse.mktprice ,NO FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+     symbol CHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,
+      id varchar(10),
+      open_share DECIMAL(18,0)
+      )
+      PRIMARY INDEX ( id );
+
+/*Insert values*/
+insert into td_cookbook_nyse.mktprice values ('tdc','1',200);     
+insert into td_cookbook_nyse.mktprice values  ('Goog','2',520);   
+insert into td_cookbook_nyse.mktprice values ('YAHOO','3',70);   
+insert into td_cookbook_nyse.mktprice values ('UB','4',20);   

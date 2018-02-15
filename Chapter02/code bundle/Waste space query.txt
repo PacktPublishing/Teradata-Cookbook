@@ -1,0 +1,4 @@
+/**Waste space query**/
+Lock dbc.tablesize for Access
+select TableName, sum(CurrentPerm) as ActualSpace,count(*)*(max(CurrentPerm)-avg(CurrentPerm)) as WastedSpace
+ from dbc.TableSize where DatabaseName=<my_database> group by TableName order by WastedSpace desc;

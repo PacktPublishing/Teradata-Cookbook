@@ -1,0 +1,5 @@
+awtmon
+awtmon -s **display in summary format for all nodes**
+awtmon -s -t 50 **display in summary format where Inuse awt > n specified**
+awtmon -s -t 50 2 2 **shows 2 samples taken in 2 second intervals of all
+AMPs with n or more AWT's in use**

@@ -1,0 +1,4 @@
+/*Multicolumn statistics*/
+Collect stat 
+column (main_addnl_type,cre_ts) --- Multicolumn stats
+ on cookbook_scratch.dw_PI_source 

@@ -1,0 +1,3 @@
+/*Compressing all column values*/
+       ALTER TABLE td_cookbook.EMP_SAL 
+       ADD DOB DATE COMPRESS ; -- ADD COLUMN_NAME DATATYPE

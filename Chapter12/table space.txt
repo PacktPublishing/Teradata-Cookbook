@@ -1,0 +1,7 @@
+**Table Space**
+LOCK dbc.tablesize ACCESS
+SELECT tablename, SUM(cur rentperm)
+FROM dbc.tablesize
+WHERE databasename ='<databasename>' -- if require to filter specific
+databases
+GROUP BY 1 ORDER BY 2 DESC;

@@ -1,0 +1,6 @@
+COLLECT STATISTICS COLUMN
+(p_pricetime,p_priceID) 
+ON prices;
+COLLECT STATISTICS COLUMN
+(p_pricetime) 
+ON price;

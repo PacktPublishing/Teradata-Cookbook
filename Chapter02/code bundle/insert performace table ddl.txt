@@ -1,0 +1,12 @@
+/**Source Table**/
+CREATE SET TABLE TEST01.web_clicks
+  (Web_page_Number INTEGER,   
+Location_Number INTEGER,
+  Amount DECIMAL(10,2))
+UNIQUE PRIMARY INDEX ( Web_page_Number );
+
+/**Target Table**/
+CREATE SET TABLE TEST01.Web_clicks_CharPI 
+  (Web_page_Number CHAR(10),   Location_Number INTEGER,
+      Salary_Amount DECIMAL(10,2))
+UNIQUE PRIMARY INDEX (Web_page_Number);

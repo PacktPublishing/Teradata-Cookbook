@@ -1,0 +1,8 @@
+/* Teradata SQL syntax OUTER JOIN */
+SELECT  A.item_id
+,A.end_dt
+FROM  item  A
+LEFT OUTER JOIN currencies  B
+ON  A.curncy_id = B.curncy_id
+and b.curncy_id=4
+WHERE  A.end_dt = ‘2017-10-04’;

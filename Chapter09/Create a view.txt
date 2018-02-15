@@ -1,0 +1,12 @@
+/*Create a view*/
+CREATE VIEW td_cookbookV.EMP_TBL_View
+AS  
+Select
+E.EMP_ID,
+D.EMP_DEPT,
+D.DEPT_CITY
+FROM
+td_cookbook.EMP_TBL_A E inner join
+td_cookbook.EMP_TBL_B D ON
+E.EMP_ID=D.EMP_ID
+Where e.EMP_ID=1032

@@ -1,0 +1,5 @@
+/*Create set table*/
+CREATE TABLE td_cookbook.EMP_TBL
+(EMP_ID INTEGER ,
+EMP_Name VARCHAR(20),
+Sal INTEGER)primary index (EMP_ID)

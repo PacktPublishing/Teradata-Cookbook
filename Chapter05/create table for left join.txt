@@ -1,0 +1,22 @@
+CREATE volatile TABLE EMP (
+name VARCHAR(25),
+ID INT
+) on commit preserve rows;
+
+INSERT into EMP VALUES ('Rosy',2);
+INSERT into EMP VALUES ('Emily',2);
+INSERT into EMP VALUES ('Tom',1);
+INSERT into EMP VALUES ('Ross',3);
+INSERT into EMP VALUES ('Mark',null);
+INSERT into EMP VALUES ('Dave',null);
+
+CREATE volatile TABLE EMP_SAL
+(
+id INT,
+DEPT varchar(25)
+) on commit preserve rows;
+
+INSERT into EMP_SAL VALUES (1,'HR');
+INSERT into EMP_SAL VALUES(2,'IT');
+INSERT into EMP_SAL VALUES (3,'CMP');
+INSERT into EMP_SAL VALUES (4,'MGMT');

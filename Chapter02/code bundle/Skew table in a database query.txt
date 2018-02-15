@@ -1,0 +1,13 @@
+/**Skew table in a database query**/
+Lock Dbc.TableSize For Access 
+Lock Dbc.tables For Access 
+SELECT B.databasename , B.TableName , A.LastAccessTimeStamp , SUM ( currentperm ) ( NAMED CurrentPerm ) ,
+ MAXIMUM ( currentperm ) ( NAMED MaxPerm ) , AVG ( currentperm ) ( NAMED AvgPerm ) ,
+ ( ( MAXIMUM ( currentperm ) - AVG ( currentperm ) ) * 100.0 ) / ( MAXIMUM ( currentperm ) ) ( NAMED SkewPercent ) 
+FROM dbc.tablesize B INNER JOIN DBC.TABLES A 
+ ON A.DATABASENAME = B.DATABASENAME 
+ AND A.TABLENAME = B.TABLENAME 
+WHERE B.DATABASENAME = <my_database>
+GROUP BY 1 , 2 , 3 
+HAVING ( ( MAXIMUM ( currentperm ) - AVG ( currentperm ) ) * 100.0 ) / ( MAXIMUM ( currentperm ) ) > 20 
+ORDER BY 1 , 2 ;

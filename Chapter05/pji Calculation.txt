@@ -1,0 +1,2 @@
+/*Calculation of PJI*/
+Product Join Indicator, PJI = (AMPCPUTime * 1000) / TotalIOCount

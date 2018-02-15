@@ -1,0 +1,9 @@
+**Space per AMP/VPROC to check skewness**
+LOCK ROW FOR ACCESS
+SELECT
+vproc,
+SUM(currentperm),
+SUM(maxperm)
+FROM dbc.diskspace
+WHERE databasename = '<databasename>'
+GROUP BY 1 ORDER BY 2 DESC;

@@ -1,0 +1,2 @@
+/*Fastload execution command*/
+FastLoad < EmployeeLoad.fl > log_fl.log /* Specify the output in log file */

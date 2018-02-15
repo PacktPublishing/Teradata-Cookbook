@@ -1,0 +1,3 @@
+INSERT INTO cookbook_scratch.dw_PI ( main_addnl_type , cre_ts , upd_ts ) 
+SELECT                                    card_main_addnl_type , CURRENT_TIMESTAMP( 0 ) , NULL 
+FROM    pcookbook_scratch.dw_PI_source ;

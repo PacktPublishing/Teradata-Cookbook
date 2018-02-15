@@ -1,0 +1,1 @@
+Sel * from dbc.zones

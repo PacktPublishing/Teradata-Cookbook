@@ -1,0 +1,15 @@
+CREATE TABLE cookbook_sandpit.show_me_stats
+( employee_is INTEGER ,
+Start_date date ,
+Year_id INTEGER 
+) PRIMARY INDEX (employee_is) INDEX (Start_date );
+
+INSERT INTO cookbook_sandpit.show_me_stats VALUES (2,'2017/05/07',102)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (3,'2017/05/01',103)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (4,'2017/05/07',104)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (5,'2017/05/03',105)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (6,'2017/05/02',106)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (7,'2017/05/08',107)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (8,'2017/05/10',108)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (9,'2017/05/11',109)
+; INSERT INTO cookbook_sandpit.show_me_stats VALUES (10,'2017/05/14',110)

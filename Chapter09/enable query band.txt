@@ -1,0 +1,2 @@
+/*enable query band*/
+SET QUERY_BAND = ‘QUERY=Test;ApplicationName=SQLA;’ FOR SESSION ;

@@ -1,0 +1,5 @@
+/*RANK*/
+SELECT str_id, prod_id, SAL, 
+RANK() OVER (ORDER BY SAL DESC) AS Rank_Sales 
+FROM SAL_TBL 
+QUALIFY rank_sales <= 5;

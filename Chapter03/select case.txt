@@ -1,0 +1,9 @@
+/*Select for CASE*/
+SELECT   
+ cust_id,
+ Cust_Add,
+  CASE WHEN Connection_type=1 THEN 'Pre-paid'
+      WHEN Connection_type=2 THEN 'Post-paid'
+ ELSE 'Not Sure'
+ END AS Connection_type
+ FROM CUST_Type;

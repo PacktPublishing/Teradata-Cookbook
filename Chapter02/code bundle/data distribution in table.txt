@@ -1,0 +1,6 @@
+Table distribution
+Lock dbc.tablesize for Access
+SELECT vproc, CurrentPerm FROM dbc.TableSize
+WHERE DatabaseName = my_database
+AND TableName = my_table
+ORDER BY 1;

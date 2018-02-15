@@ -1,0 +1,18 @@
+/* UNION ALL To reduce skew*/
+SELECT cust_id, name
+(
+sel cust_id,name
+from skew_tableA A,
+nonskew_tableB B
+on A.cust_id=B.cust_id
+where a.cust_id=<skew_value>
+
+UNION ALL
+
+sel cust_id,name
+from skew_tableA A,
+nonskew_tableB B
+on A.cust_id=B.cust_id
+where a.cust_id not in (<skew_value>)
+)a
+ GROUP BY 1,2

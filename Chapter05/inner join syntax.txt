@@ -1,0 +1,8 @@
+/* Teradata SQL syntax INNER JOIN */
+SELECT  A.item_id
+,A.end_dt
+,B.rev_curncy
+FROM  item_tbl  A
+,rev_tbl  B
+WHERE  A.item_id = B.item_id
+AND  A.end_dt = B.end_dt;

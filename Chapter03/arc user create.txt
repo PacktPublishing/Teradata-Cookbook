@@ -1,0 +1,4 @@
+
+/*Archive database and user*/
+Create Database ARC_Usr as PERM=0;
+Create User Cookbook_ARCUSER from ARC_Usr as PERM=0, PASSWORD=password;

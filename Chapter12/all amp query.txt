@@ -1,0 +1,2 @@
+**ALL AMP Query**
+Sel * from dbc.dbcinfo;

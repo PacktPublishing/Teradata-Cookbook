@@ -1,0 +1,5 @@
+<hostid>:<sessionno>
+ <hostid>.<username>
+abort session *.<username> [logoff] [list] [override]
+ <hostid>.*
+ *.*

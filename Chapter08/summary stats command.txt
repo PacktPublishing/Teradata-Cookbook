@@ -1,0 +1,2 @@
+/*Summary Stats command*/
+show summary stats values on cookbook_sandpit.show_me_stats;

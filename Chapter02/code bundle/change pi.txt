@@ -1,0 +1,4 @@
+CREATE SET TABLE TEST01.Web_clicks_Char_change_PI 
+  (Web_page_Number Integer,   Location_Number INTEGER,
+      Salary_Amount DECIMAL(10,2))
+UNIQUE PRIMARY INDEX (Web_page_Number);

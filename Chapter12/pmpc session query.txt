@@ -1,0 +1,3 @@
+SELECT *
+FROM
+TABLE(syslib.MonitorSQLCurrentStep(1, 128988, 16383)) as t1;

@@ -1,0 +1,5 @@
+
+update test01.web_clicks a
+from test02.wed_address b
+set acc_last_date= date
+where a.Rego_Start_Dt between '2016-12-25' and '2017-01-28'

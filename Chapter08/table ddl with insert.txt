@@ -1,0 +1,11 @@
+/*Sample table for Statistics*/
+CREATE volatile TABLE EMP_SAL_STATS
+(
+id INT,
+DEPT varchar(25)
+) on commit preserve rows;
+
+INSERT into EMP_SAL_STATS VALUES (1,'HR');
+INSERT into EMP_SAL_STATS VALUES(2,'IT');
+INSERT into EMP_SAL_STATS VALUES (3,'CMP');
+INSERT into EMP_SAL_STATS VALUES (4,'MGMT');

@@ -1,0 +1,37 @@
+.LOGON 127.0.0.1/dbc,dbc /* servername/userid,password */
+/* if you are using LDAP mechanism then use .logmech ldap before .logon statement for authentication*/
+.SESSIONS 4;
+.CHECKPOINT 10;  /* When to take checkpoint */
+.DATABASE COOKBOOK_FL /* Set default database */
+DROP TABLE TEST_FL; /*To drop existing staging table*/
+DROP TABLE ERR_FL1; /*To Drop error table*/
+DROP TABLE ERR_FL2; /*To Drop error table*/
+CREATE MULTISET TABLE TEST_FL ,NO FALLBACK ,NO BEFORE JOURNAL,
+NO AFTER JOURNAL,
+CHECKSUM = DEFAULT,
+DEFAULT MERGEBLOCKRATIO
+(
+Name VARCHAR(30),
+Sr_NAME VARCHAR(30) CHARACTER SET LATIN NOT CASESPECIFIC),
+dob date,
+Sal Decimal(18,0),
+Id INT(2)
+)
+PRIMARY INDEX ( Name,id );
+/*SET RECORD is used to define the delimiter used in file, here | is the delimiter for current flat file*/
+SET RECORD VARTEXT “|”;
+/*to define the structure of the file use DEFINE and mention 
+the file path from which, table will be loaded*/
+DEFINE Name (VARCHAR(6))
+,Sr_NAME (VARCHAR(20))
+,dob (VARCHAR(10))
+,Sal (VARCHAR(30))
+,ID (VARCHAR(2))
+FILE = C:/tmp/accounts_data.txt; /*flat file path*/
+/*BEGIN will start the load process */
+BEGIN LOADING TEST_FL
+ERRORFILES ERR_FL1,DEV.ERR_FL2;
+INSERT INTO TEST_FL
+VALUES(:Name,:Sr_NAME,:dob,:Sal,:id);
+END LOADING;
+LOGOFF; /*last statement in the fastload script*/

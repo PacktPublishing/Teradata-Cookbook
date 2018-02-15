@@ -1,0 +1,5 @@
+/*Perecent_RANK*/
+SELECT str_id, emp_name, sal, 
+RANK()  OVER (ORDER BY sal DESC) AS Rank_Sales,
+PERCENT_RANK() OVER (ORDER BY sal DESC) AS Pct_Rank_Sales
+FROM SAL_TBL

@@ -1,0 +1,2 @@
+/* List all views*/
+SELECT databasename,tablename from DBC.TABLES where tablekind='V'

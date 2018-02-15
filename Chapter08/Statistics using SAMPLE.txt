@@ -1,0 +1,5 @@
+/*Statistics using SAMPLE*/
+COLLECT STATISTICS
+USING <SYSTEM> SAMPLE 5 PERCENT
+COLUMN start_dt
+ON prod_tables;

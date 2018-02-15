@@ -1,0 +1,1 @@
+psh sar -uq 5 5 **Execute command 5 times in 5 second interval*

@@ -1,0 +1,3 @@
+/*Collect statistics*/
+Full collect stats:
+ Collect stats <tablename>

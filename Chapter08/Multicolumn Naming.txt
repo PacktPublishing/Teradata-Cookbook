@@ -1,0 +1,5 @@
+/*Multicolumn Naming*/
+COLLECT STATISTICS
+COLUMN (Calendar_Date, Product_Number, Outlet_ID) 
+AS Stats_CalDate_ProdNum_RtlNum -- STATS NAME
+ON multi_column_table;

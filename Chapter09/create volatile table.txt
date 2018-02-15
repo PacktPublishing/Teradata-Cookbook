@@ -1,0 +1,7 @@
+/*Create volatile table*/
+CREATE Volatile TABLE EMP_TBL_MULTI
+(EMP_ID INTEGER ,
+EMP_Name VARCHAR(20),
+Sal INTEGER) 
+primary index (EMP_ID)
+on commit preserve rows;

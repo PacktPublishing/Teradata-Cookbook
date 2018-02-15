@@ -1,0 +1,4 @@
+/*View creating syntax*/
+CREATE/REPLACE VIEW <viewname> 
+AS  
+<select query>; 

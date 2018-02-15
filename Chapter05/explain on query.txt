@@ -1,0 +1,7 @@
+/*EXPLAIN of qery*/
+EXPLAIN sel A.* ,b.sal
+from td_cookbook.A_with_join A
+inner join
+td_cookbook.B_with_nonjoin B
+on a.cust_id=b.cust_id
+where a.cust_id is not null

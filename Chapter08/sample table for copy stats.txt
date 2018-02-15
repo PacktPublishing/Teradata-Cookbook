@@ -1,0 +1,12 @@
+/*DDL for table used*/
+CREATE SET TABLE cookbook_sandpit.copy_stats_new ,NO FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO
+     (
+      username varCHAR(30) CHARACTER SET LATIN NOT CASESPECIFIC,
+      LogDate DATE FORMAT 'YYYY-MM-DD',
+            DatabaseName CHAR(30) CHARACTER SET LATIN NOT CASESPECIFIC,
+      TotalCpu FLOAT)
+PRIMARY INDEX ( username ,logdate  );

@@ -1,0 +1,8 @@
+SELECT t2.StepNum (FORMAT 'ZZZ9'),
+ t2.EstRowCount (FORMAT 'ZZZ,ZZZ,ZZZ,ZZ9'),
+ t2.ActRowCount (FORMAT 'ZZZ,ZZZ,ZZZ,ZZ9'),
+ t2.EstElapsedTime (FORMAT 'ZZZ,ZZZ,ZZ9'),
+ t2.ActElapsedTime (FORMAT 'ZZZ,ZZZ,ZZ9'),
+ SUBSTRING(t2.SQLStep FROM 1 FOR 50) (TITLE 'SQLStep')
+FROM
+TABLE (syslib.MonitorSQLSteps(1, 101239, 16383)) AS t2;

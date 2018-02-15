@@ -1,0 +1,2 @@
+select SRC.web_id,COUNT(*) from test01.web_clicks TGT,test02.web_clicks SRC
+group by 1 having COUNT(*)>1

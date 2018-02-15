@@ -1,0 +1,2 @@
+/* MLOAD release lock*/
+RELEASE MLOAD <databasename.tablename>;

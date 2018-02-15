@@ -1,0 +1,14 @@
+/*Query with Oracle Syntax*/
+SELECT  A.QTR_YEAR, A.WEEK_YEAR ,  B.INVOICE_NME 
+FROM  Table_A.CUR  A, Table_B.INVOICE_CNTY b ,  
+WHERE  B.store_Id=A.CNTY_id 
+and A.type_name='MOD'
+GROUP BY 1,  2; 
+/*Query With ANSI Syntax*/
+SELECT  A.QTR_YEAR, A.WEEK_YEAR ,  B.INVOICE_NME 
+FROM  Table_A.CUR  A,  
+INNER JOIN Table_B.INVOICE_CNTY b 
+ON B.store_Id=A.CNTY_id 
+Where
+A.type_name='MOD'
+GROUP BY 1,  2;
